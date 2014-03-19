@@ -1,0 +1,6 @@
+<% @foods.each do |food| %>
+  <h1><%= food.name %></h1>
+    <% for location in food.locations %>
+        <li><%= location.title %></li>
+    <% end %>
+<% end %>

@@ -1,0 +1,21 @@
+<%= form_for @location do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field clearfix">
+    <div class="field">
+        <%= f.text_field :title, placeholder: "Title", :class => 'field-title' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :region, placeholder: "Region", :class => 'field-region' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :regionName, placeholder: "Region Name", :class => 'field-region-name' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :state, placeholder: "State", :class => 'field-state' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :city, placeholder: "City", :class => 'field-city' %>
+    </div>
+    <%= f.submit "Post", :class => 'add-gift', :tabindex => '3' %>
+  </div>
+<% end %>

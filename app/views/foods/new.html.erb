@@ -1,0 +1,51 @@
+<%= form_for @food do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field clearfix">
+    <div class="field">
+        <%= f.text_field :name, placeholder: "Name", :class => 'field-name' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :type, placeholder: "Type", :class => 'field-type' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :description, placeholder: "Description", :class => 'field-description' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :area, placeholder: "Area", :class => 'field-area' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :icon, placeholder: "Icon", :class => 'field-icon' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :iconSource, placeholder: "Icon source", :class => 'field-icon-source'%>
+    </div>
+    <div class="field">
+      <%= f.text_field :image, placeholder: "Image", :class => 'field-image' %>
+    </div>
+    <div class="field">
+    </div>
+    <div class="field">
+      <% f.text_field :months, placeholder: "Months", :class => 'field-months' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :source, placeholder: "Source", :class => 'field-source' %>
+    </div>
+
+    <% for location in Location.find(:all) %>
+        <div>
+          <%= check_box_tag "food[location_ids]", location.id -%>
+          <%= location.title %>
+        </div>
+    <% end %>
+    MONTHS
+    <% for month in Month.find(:all) %>
+        <div>
+          <%= check_box_tag "food[months][]", month.id %>
+          <%= month.name %>
+        </div>
+    <% end %>
+
+    <%= f.submit "Post", :class => 'add-gift', :tabindex => '3' %>
+
+  </div>
+<% end %>
